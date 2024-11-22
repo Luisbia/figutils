@@ -1,0 +1,21 @@
+Package: figutils
+Type: Package
+Title: Set of utilities for interactive use of Figaro
+Version: 0.0.1
+Author: Luis Biedma <luis.biedma@ec.europa.eu>
+Maintainer: Luis Biedma <luis.biedma@ec.europa.eu>
+Description: Collection of functions, dictionaries and other utilities to work interactively  with Figaro data. It could be used also to retrieve easily common functions, parameters, etc used in Figaro to be pasted in production code instead of looking for them in other scripts.
+License: MIT
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.2
+Depends: 
+    R (>= 2.10)
+Imports: 
+    arrow,
+    data.table,
+    dplyr,
+    DT,
+    fs,
+    readr,
+    RMdt
