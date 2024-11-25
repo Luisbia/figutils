@@ -9,7 +9,7 @@
 #' @keywords internal
 #' @noRd
 #' @return List with basic input-output matrices and metadata
-fig_extract_matrix <- function(path = "https://ec.europa.eu/eurostat/documents/51957/19580762/",
+fig_extract_matrices_figaro <- function(path = "https://ec.europa.eu/eurostat/documents/51957/19580762/",
                                year = NULL, quiet = FALSE) {
   
   # Dimensions

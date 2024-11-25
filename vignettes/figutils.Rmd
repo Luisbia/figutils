@@ -1,0 +1,83 @@
+---
+title: "figutils"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{figutils}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+The package can be installed from the file stored in E:/users/biedmlu.
+```{r setup}
+#install.packages("E:/users/biedmlu/figutils_0.0.1.tar.gz", repos = NULL, type = "source")
+library(figutils)
+library(data.table)
+```
+
+This packages puts together a collection of utilities (data, functions) which I use quite often when working interactively mainly in the NAMA and SUT Figaro modules. It also includes some reference material to avoid the need to look for it in already existing scripts. All the material can be accessed typing fig_.
+
+## Dictionaries
+
+Many things are dictionaries available in MDT which I find easier to bring directly when I need to consult something instead of connecting, looking up the name in MDT, etc. For example the row_pi dictionary.
+
+```{r}
+fig_row_pi_dic |> 
+  head()
+```
+
+Or the ISO 3/numeric code for India
+```{r}
+as.data.table(fig_iso)[ref_area == "IN",] 
+
+```
+## Convenience functions
+
+Many times I export an intermediate object to inspect it in excel.
+
+```{r}
+fig_to_excel(fig_usd_eur)
+```
+
+or do extractions from NAMA and SUTs
+
+```{r}
+fig_get_nama("NAMA_REFERENCE_24ED", year_nama = 2022 ) |> 
+  head()
+```
+
+
+There is also a funcion that creates a virtual dataset of icio based on parquet files stored in E:/users/biedmlu. You can refine the selection and collect after the function.
+
+```{r}
+tictoc::tic()
+fig_get_icio(
+  folder = "E:/users/biedmlu/figaro_db/24ed/reference",
+  ic = "icsup") |> 
+  dplyr::filter(REF_AREA == "ES" & COUNTERPART_AREA == "ES" & COL_PI == "A01" & ROW_PI == "CPA_A01") |> 
+  dplyr::arrange(TIME_PERIOD) |> 
+  dplyr::collect()
+tictoc::toc()
+```
+## Quick reference
+
+There are some functions stored mainly for reference. If I have to create a time stamp for the variable last_update I can look it up at: 
+
+```{r, eval = FALSE}
+View(fig_time)
+```
+
+Same as how to avoid Namibia being forgotten when loading csv files.
+
+```{r, eval = FALSE}
+View(fig_from_csv)
+```
+
