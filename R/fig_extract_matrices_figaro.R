@@ -117,5 +117,4 @@ fig_extract_matrices_figaro <- function(path = "https://ec.europa.eu/eurostat/do
   
 }
 
-figaro_2020 <- fig_extract_matrix(path= "C:/Users/MOOVE3-15/",2020)
 
