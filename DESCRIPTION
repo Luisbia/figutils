@@ -19,3 +19,7 @@ Imports:
     fs,
     readr,
     RMdt
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

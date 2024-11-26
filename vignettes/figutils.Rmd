@@ -49,23 +49,21 @@ fig_to_excel(fig_usd_eur)
 
 or do extractions from NAMA and SUTs
 
-```{r}
-fig_get_nama("NAMA_REFERENCE_24ED", year_nama = 2022 ) |> 
-  head()
+```{r,eval=FALSE}
+fig_get_nama("NAMA_REFERENCE_24ED", year_nama = 2022 ) 
 ```
 
 
 There is also a funcion that creates a virtual dataset of icio based on parquet files stored in E:/users/biedmlu. You can refine the selection and collect after the function.
 
-```{r}
-tictoc::tic()
+```{r,eval=FALSE}
 fig_get_icio(
-  folder = "D:/users/biedmlu/figaro_db/24ed/reference",
+  folder = "E:/users/biedmlu/figaro_db/24ed/reference",
   ic = "icsup") |> 
   dplyr::filter(REF_AREA == "ES" & COUNTERPART_AREA == "ES" & COL_PI == "A01" & ROW_PI == "CPA_A01") |> 
   dplyr::arrange(TIME_PERIOD) |> 
   dplyr::collect()
-tictoc::toc()
+
 ```
 ## Quick reference
 
