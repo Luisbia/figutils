@@ -6,9 +6,8 @@
 #' @param year Integer
 #' @param quiet Boolean, if `TRUE`, suppress all status messages. Default
 #'   is `FALSE`, i.e., messages are shown.
-#' @keywords internal
-#' @noRd
 #' @return List with basic input-output matrices and metadata
+#' #' @export fig_extract_matrices_oecd_icio
 fig_extract_matrices_oecd_icio <- function(path,
                          year = NULL, quiet = FALSE) {
   
